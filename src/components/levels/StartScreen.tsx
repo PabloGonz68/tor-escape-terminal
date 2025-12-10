@@ -20,12 +20,27 @@ const StartScreen = ({ onStart }: StartScreenProps) => {
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="inline-block"
         >
-          <Shield className="w-16 h-16 text-terminal-purple mx-auto" />
+          <motion.img
+            src="/public/Tor-browser-icon.webp"
+            className="w-16 h-16 mx-auto"
+            animate={{
+              filter: [
+                "drop-shadow(0 0 4px #a855f7)",
+                "drop-shadow(0 0 12px #a855f7)",
+                "drop-shadow(0 0 4px #a855f7)"
+              ]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
         </motion.div>
 
         <pre className="text-terminal-green text-glow text-xs sm:text-sm leading-relaxed">
-{`
-╔══════════════════════════════════════╗
+          {`
+╔══════════════════════════════════════╗ 
 ║                                      ║
 ║   TOR NETWORK ACCESS PROTOCOL        ║
 ║                                      ║
