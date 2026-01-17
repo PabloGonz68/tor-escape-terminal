@@ -38,7 +38,7 @@ const Level3Crypto = ({ onComplete }: Level3CryptoProps) => {
           <div className="bg-secondary p-6 border border-border rounded-lg relative overflow-hidden">
             <div className="absolute top-2 left-2 flex items-center gap-2 text-xs text-muted-foreground">
               <Lock className="w-3 h-3" />
-              <span>MENSAJE CIFRADO (Base64)</span>
+              <span>MENSAJE CIFRADO</span>
             </div>
             <motion.p
               animate={{ opacity: [0.7, 1, 0.7] }}
@@ -59,7 +59,7 @@ const Level3Crypto = ({ onComplete }: Level3CryptoProps) => {
               "La clave para saltarse la <span className="text-terminal-green">censura</span>"
             </p>
             <p className="text-xs text-muted-foreground mt-2">
-              // Tip: Base64 es una codificación común en web
+              // Tip: Busca codificaciones comúnes en la web
             </p>
           </div>
         </div>

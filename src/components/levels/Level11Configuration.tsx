@@ -1,23 +1,20 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { HelpCircle } from "lucide-react";
+import { Settings, Shield, Globe } from "lucide-react";
 import PuzzleCard from "../PuzzleCard";
 import TerminalButton from "../TerminalButton";
 
-interface Level1QuizProps {
+interface Level11ConfigurationProps {
   onComplete: (success: boolean) => void;
 }
 
 const options = [
-  { id: "A", text: "The Onion Router - Sistema de enrutamiento en capas con cebolla", correct: true },
-  { id: "B", text: "Total Online Routing - Enrutamiento completo por internet", correct: false },
-  { id: "C", text: "The Only Route - La única ruta disponible", correct: false },
-  { id: "D", text: "Trusted Onion Relay - Relay confiable de cebolla", correct: false },
-  { id: "E", text: "Tor Onion Routing - Enrutamiento de cebolla Tor", correct: false },
-  { id: "F", text: "Terminal Onion Router - Router de cebolla terminal", correct: false },
+  { id: "A", text: "ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy", correct: true },
+  { id: "B", text: "ServerTransportPlugin obfs4 exec /usr/bin/meek", correct: false },
+  { id: "C", text: "ServerTransportPlugin obfs4 exec /usr/bin/fte", correct: false },
 ];
 
-const Level1Quiz = ({ onComplete }: Level1QuizProps) => {
+const Level11Configuration = ({ onComplete }: Level11ConfigurationProps) => {
   const [selected, setSelected] = useState<string | null>(null);
 
   const handleSubmit = () => {
@@ -27,20 +24,39 @@ const Level1Quiz = ({ onComplete }: Level1QuizProps) => {
   };
 
   return (
-    <PuzzleCard title="Conceptos Básicos de TOR">
+    <PuzzleCard title="Configuración de Tor">
       <div className="space-y-6">
         <div className="flex items-start gap-3 p-4 bg-secondary/50 border border-border rounded">
-          <HelpCircle className="w-5 h-5 text-terminal-purple mt-0.5 flex-shrink-0" />
+          <Settings className="w-5 h-5 text-terminal-purple mt-0.5 flex-shrink-0" />
           <div>
             <p className="text-foreground text-sm">
-              ¿Qué significa el acrónimo <span className="text-terminal-purple font-bold">TOR</span>?
+              ¿Cuál es la configuración completa para convertir un relay en un{" "}
+              <span className="text-terminal-purple font-bold">bridge obfs4</span>?
             </p>
             <p className="text-xs text-muted-foreground mt-1">
-              Selecciona la respuesta correcta
+              Incluye ServerTransportPlugin y BridgeRelay
             </p>
           </div>
         </div>
 
+        <div className="p-4 bg-secondary/30 border border-border rounded">
+          <p className="text-sm text-muted-foreground mb-3">
+            // Ejemplo de configuración básica:
+          </p>
+          <pre className="text-xs text-terminal-green font-mono">
+{`# Archivo de configuración Tor
+SocksPort 9050
+ControlPort 9051
+CookieAuthentication 1
+ExitPolicy reject *:*
+
+# Configuración de bridges
+UseBridges 1
+Bridge obfs4...`}
+          </pre>
+        </div>
+
+        {/* Answer Options */}
         <div className="space-y-3">
           {options.map((option, index) => (
             <motion.div
@@ -56,34 +72,23 @@ const Level1Quiz = ({ onComplete }: Level1QuizProps) => {
               >
                 <span className="flex items-center gap-3 text-left w-full">
                   <span className="text-terminal-purple">[{option.id}]</span>
-                  <span>{option.text}</span>
+                  <span className="font-mono text-sm">{option.text}</span>
                 </span>
               </TerminalButton>
             </motion.div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="pt-4 border-t border-border"
-        >
-          <TerminalButton
-            onClick={handleSubmit}
-            variant="primary"
-            disabled={!selected}
-          >
-            {"> VERIFICAR RESPUESTA"}
-          </TerminalButton>
-        </motion.div>
+        <TerminalButton onClick={handleSubmit} variant="primary" disabled={!selected}>
+          {"> VERIFICAR CONFIGURACIÓN"}
+        </TerminalButton>
 
         <p className="text-xs text-muted-foreground">
-          // Pista: Piensa en las capas de encriptación
+          // Pista: ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy
         </p>
       </div>
     </PuzzleCard>
   );
 };
 
-export default Level1Quiz;
+export default Level11Configuration;

@@ -12,20 +12,27 @@ const options = [
   {
     id: "A",
     text: "facebookcorewwwi.onion",
-    desc: "Dirección v2 (16 caracteres) - OBSOLETA",
     correct: false,
   },
   {
     id: "B",
     text: "www.darkweb-market.com",
-    desc: "Dominio clearnet normal",
     correct: false,
   },
   {
     id: "C",
     text: "duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion",
-    desc: "Dirección v3 (56 caracteres) - ACTUAL",
     correct: true,
+  },
+  {
+    id: "D",
+    text: "torproject.org.onion",
+    correct: false,
+  },
+  {
+    id: "E",
+    text: "abcdefghijklmnop.onion",
+    correct: false,
   },
 ];
 
@@ -47,9 +54,6 @@ const Level4Onion = ({ onComplete }: Level4OnionProps) => {
             <p className="text-sm text-foreground">
               ¿Cuál de estas direcciones parece una dirección{" "}
               <span className="text-terminal-purple">.onion v3</span> legítima?
-            </p>
-            <p className="text-xs text-muted-foreground mt-1">
-              Las direcciones v3 tienen 56 caracteres + ".onion"
             </p>
           </div>
         </div>
@@ -76,7 +80,6 @@ const Level4Onion = ({ onComplete }: Level4OnionProps) => {
                     <p className="text-sm text-foreground font-mono break-all">
                       {option.text}
                     </p>
-                    <p className="text-xs text-muted-foreground mt-1">{option.desc}</p>
                   </div>
                   {selected === option.id && (
                     <CheckCircle2 className="w-5 h-5 text-terminal-green flex-shrink-0" />

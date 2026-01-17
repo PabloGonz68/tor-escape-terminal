@@ -21,7 +21,7 @@ const StartScreen = ({ onStart }: StartScreenProps) => {
           className="inline-block"
         >
           <motion.img
-            src="/public/Tor-browser-icon.webp"
+            src="/Tor-browser-icon.webp"
             className="w-16 h-16 mx-auto"
             animate={{
               filter: [
@@ -60,7 +60,7 @@ const StartScreen = ({ onStart }: StartScreenProps) => {
         className="space-y-4"
       >
         <p className="text-muted-foreground text-sm">
-          // Completa los 4 desafíos para escapar de la vigilancia
+          // Completa los 26 desafíos para escapar de la vigilancia
         </p>
 
         <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
@@ -68,7 +68,7 @@ const StartScreen = ({ onStart }: StartScreenProps) => {
             <Wifi className="w-4 h-4" /> Conexión anónima
           </span>
           <span>|</span>
-          <span>4 Niveles</span>
+          <span>26 Niveles</span>
           <span>|</span>
           <span>Educativo</span>
         </div>

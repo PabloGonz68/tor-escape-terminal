@@ -1,23 +1,23 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { HelpCircle } from "lucide-react";
+import { Users, Code, Heart } from "lucide-react";
 import PuzzleCard from "../PuzzleCard";
 import TerminalButton from "../TerminalButton";
 
-interface Level1QuizProps {
+interface Level10TorProjectProps {
   onComplete: (success: boolean) => void;
 }
 
 const options = [
-  { id: "A", text: "The Onion Router - Sistema de enrutamiento en capas con cebolla", correct: true },
-  { id: "B", text: "Total Online Routing - Enrutamiento completo por internet", correct: false },
-  { id: "C", text: "The Only Route - La única ruta disponible", correct: false },
-  { id: "D", text: "Trusted Onion Relay - Relay confiable de cebolla", correct: false },
-  { id: "E", text: "Tor Onion Routing - Enrutamiento de cebolla Tor", correct: false },
-  { id: "F", text: "Terminal Onion Router - Router de cebolla terminal", correct: false },
+  { id: "A", text: "2002 - Primera versión pública con 3 nodos", correct: true },
+  { id: "B", text: "1995 - Proyecto inicial de la Marina de EE.UU.", correct: false },
+  { id: "C", text: "2010 - Lanzamiento de Tor Browser", correct: false },
+  { id: "D", text: "1998 - Desarrollo inicial en el MIT", correct: false },
+  { id: "E", text: "2008 - Separación del proyecto de la Marina", correct: false },
+  { id: "F", text: "2015 - Implementación de onion v3", correct: false },
 ];
 
-const Level1Quiz = ({ onComplete }: Level1QuizProps) => {
+const Level10TorProject = ({ onComplete }: Level10TorProjectProps) => {
   const [selected, setSelected] = useState<string | null>(null);
 
   const handleSubmit = () => {
@@ -27,16 +27,17 @@ const Level1Quiz = ({ onComplete }: Level1QuizProps) => {
   };
 
   return (
-    <PuzzleCard title="Conceptos Básicos de TOR">
+    <PuzzleCard title="Historia del Proyecto Tor">
       <div className="space-y-6">
         <div className="flex items-start gap-3 p-4 bg-secondary/50 border border-border rounded">
-          <HelpCircle className="w-5 h-5 text-terminal-purple mt-0.5 flex-shrink-0" />
+          <Users className="w-5 h-5 text-terminal-purple mt-0.5 flex-shrink-0" />
           <div>
             <p className="text-foreground text-sm">
-              ¿Qué significa el acrónimo <span className="text-terminal-purple font-bold">TOR</span>?
+              ¿En qué año y contexto se lanzó la primera versión pública del{" "}
+              <span className="text-terminal-purple font-bold">Proyecto Tor</span>?
             </p>
             <p className="text-xs text-muted-foreground mt-1">
-              Selecciona la respuesta correcta
+              Incluye detalles técnicos del lanzamiento inicial
             </p>
           </div>
         </div>
@@ -79,11 +80,11 @@ const Level1Quiz = ({ onComplete }: Level1QuizProps) => {
         </motion.div>
 
         <p className="text-xs text-muted-foreground">
-          // Pista: Piensa en las capas de encriptación
+          // Pista: Tor comenzó como un proyecto de la Marina de EE.UU.
         </p>
       </div>
     </PuzzleCard>
   );
 };
 
-export default Level1Quiz;
+export default Level10TorProject;
