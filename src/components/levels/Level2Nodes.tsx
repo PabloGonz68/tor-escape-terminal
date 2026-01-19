@@ -24,10 +24,6 @@ const Level2Nodes = ({ onComplete }: Level2NodesProps) => {
   return (
     <PuzzleCard title="Lógica de Enrutamiento Onion">
       <div className="space-y-6">
-        <p className="text-sm text-muted-foreground">
-          // Observa la estructura de nodos de la red Tor
-        </p>
-
         {/* Visual Node Representation */}
         <div className="flex items-center justify-center gap-2 sm:gap-4 py-6">
           {nodes.map((node, index) => (
