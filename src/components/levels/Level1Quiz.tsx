@@ -9,12 +9,12 @@ interface Level1QuizProps {
 }
 
 const options = [
-  { id: "A", text: "The Onion Router - Sistema de enrutamiento en capas con cebolla", correct: true },
-  { id: "B", text: "Total Online Routing - Enrutamiento completo por internet", correct: false },
-  { id: "C", text: "The Only Route - La única ruta disponible", correct: false },
-  { id: "D", text: "Trusted Onion Relay - Relay confiable de cebolla", correct: false },
-  { id: "E", text: "Tor Onion Routing - Enrutamiento de cebolla Tor", correct: false },
-  { id: "F", text: "Terminal Onion Router - Router de cebolla terminal", correct: false },
+  { id: "A", text: "The Onion Router", correct: true },
+  { id: "B", text: "Total Online Routing", correct: false },
+  { id: "C", text: "The Only Route", correct: false },
+  { id: "D", text: "Trusted Onion Relay", correct: false },
+  { id: "E", text: "Tor Onion Routing", correct: false },
+  { id: "F", text: "Terminal Onion Router", correct: false },
 ];
 
 const Level1Quiz = ({ onComplete }: Level1QuizProps) => {
